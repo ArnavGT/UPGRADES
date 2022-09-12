@@ -1,0 +1,49 @@
+dotenv: .env
+dependencies:
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+  - OpenZeppelin/openzeppelin-contracts@4.1.0
+compiler:
+  solc:
+    remappings:
+      - "@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1"
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.1.0"
+    version: null
+networks:
+  default: mainnet-fork
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+    dai_address: '0xc7AD46e0b8a400Bb3C915120d284AafbA8fc4735'
+    weth_token: '0xc778417E063141139Fce010982780140Aa0cD5Ab'
+    vrf_coordinator: '0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B'
+    link_token: '0x01BE23585060835E02B77ef475b0Cc51aA1e0709'
+    keyhash: '0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311'
+    fee: 100000000000000000 # 0.1
+  mainnet-fork:
+    eth_usd: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    dai_eth: '0x773616e4d11a78f511299002da57a0a94577f1f4'
+    verify: False
+    weth_token: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+    LendingPoolAddressesProvider: '0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5'
+    dai_address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+  development:
+    verify: False
+    fee: 10000000000000000 #0.1 link
+    keyhash: '0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311'
+  ganache-local:
+    verify: False
+  kovan:
+    weth_token: '0xd0a1e359811322d97991e03f863a0c30c2cf029c'
+    LendingPoolAddressesProvider: '0x88757f2f99175387aB4C6a4b3067c77A695b0349'
+    dai_eth: '0x22B58f1EbEDfCA50feF632bD73368b2FdA96D541'
+    dai_address: '0x4F96Fe3b7A6Cf9725f59d353F723c1bDb64CA6Aa'
+  goerli: 
+    LendingPoolAddressesProvider: '0xc4dCB5126a3AfEd129BC3668Ea19285A9f56D15D'
+    weth_token: '0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6'
+    dai_address: '0xdc31ee1784292379fbb2964b3b9c4124d8f89c60'
+    link_token: '0x326C977E6efc84E512bB9C30f76E30c160eD06FB'
+    vrf_coordinator: '0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D'
+    keyhash: '0x79d3d8832d904592c0bf9818b621522c988bb8b0c05cdc3b15aea1b6e8db0c15'
+    fee: 10000000000000000
+wallets:
+  from_key: ${PRIVATE_KEY}
